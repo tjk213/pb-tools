@@ -67,6 +67,8 @@ out_rnas = set([
     'TCACAACCCCCGACTATCGC',
 ])
 
+RNA_LEN = len('TAAAAACGCTGGCGGCCTAG')
+
 def add_count(idx, key, val):
     if not key in counts.keys():
         counts[key] = ['0' for i in range(num_samples)]
@@ -93,6 +95,7 @@ def main():
 
         for line in lines[1::]:
             id, gene, full_name, rna_seq, count = line.strip().split(',')
+            assert len(rna_seq) == RNA_LEN, f'INVALID RNA SEQUENCE: file={sample_file} - seq={rna_seq}'
             add_count(i,(gene,rna_seq),count)
 
         samples.close()
