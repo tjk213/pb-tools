@@ -76,10 +76,22 @@ def add_count(idx, key, val):
 def main():
 
     print('Parsing gRNA samples...',file=sys.stderr,end='',flush=True)
+
     for i,sample_file in enumerate(sample_files):
         samples = open(sample_file,'r')
+        lines = [x for x in samples]
 
-        for line in samples:
+        # Verify header
+
+        labels = lines[0].strip().split(',')
+        assert labels[0] == 'gene',    f'Unexpected label [file={sample_file}]'
+        assert labels[1] == 'sgRNA',   f'Unexpected label [file={sample_file}]'
+        assert labels[2] == 'gRNASeq', f'Unexpected label [file={sample_file}]'
+        assert labels[3] == 'Count',   f'Unexpected label [file={sample_file}]'
+
+        # Parse samples
+
+        for line in lines[1::]:
             id, gene, full_name, rna_seq, count = line.strip().split(',')
             add_count(i,(gene,rna_seq),count)
 
