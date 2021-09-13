@@ -96,6 +96,7 @@ def main():
         for line in lines[1::]:
             id, gene, full_name, rna_seq, count = line.strip().split(',')
             assert len(rna_seq) == RNA_LEN, f'INVALID RNA SEQUENCE: file={sample_file} - seq={rna_seq}'
+            assert full_name == gene + '_' + rna_seq, f'Unexpected sgRNA: file={sample_file} - seq={rna_seq}'
             add_count(i,(gene,rna_seq),count)
 
         samples.close()
