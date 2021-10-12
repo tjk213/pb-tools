@@ -23,13 +23,13 @@ num_samples = len(sample_files)
 
 out_rnas = set([
     'TAAAAACGCTGGCGGCCTAG',  # Non Targeting
-    'GGTCATGGGCGACATGGACG',  # Fam118b      
-    'TCACAGACCTGACCCTGCTG',  # Nfyc         
-    'TACTTGGCAAGAGTGTCCCG',  # Vmn1r197     
-    'CCTCATCACCCTGCCCCGCG',  # Srgap3       
-    'CGTGACCTACTCGAACGTGG',  # Hnrnpa0      
-    'CGGGCGTGAAAATGTACCAA',  # Smim11       
-    'TCAGCGCGAAGGGCACGCGG',  # Gdnf         
+    'GGTCATGGGCGACATGGACG',  # Fam118b
+    'TCACAGACCTGACCCTGCTG',  # Nfyc
+    'TACTTGGCAAGAGTGTCCCG',  # Vmn1r197
+    'CCTCATCACCCTGCCCCGCG',  # Srgap3
+    'CGTGACCTACTCGAACGTGG',  # Hnrnpa0
+    'CGGGCGTGAAAATGTACCAA',  # Smim11
+    'TCAGCGCGAAGGGCACGCGG',  # Gdnf
     'TCAGACCAACCCAGGACCAG',
     'AGGACTTGTACTTACCACAC',
     'CTACAGTCCCTTTGACGTGG',
@@ -126,7 +126,7 @@ def main():
     for sample in final_samples:
         print(', '.join(sample))
     print('done.',file=sys.stderr)
-    
+
     return False
 
 if __name__ == '__main__': sys.exit(main())
