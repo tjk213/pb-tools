@@ -5,6 +5,9 @@ import sys
 counts = {}
 
 sample_files = [
+    'S2wk_B2.csv',
+    'S2wk_C3.csv',
+    'S2wk_C12.csv',
     'S4wk_B5.csv',
     'S4wk_B14.csv',
     'S6wk_A6.csv',
